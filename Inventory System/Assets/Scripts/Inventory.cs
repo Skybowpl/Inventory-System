@@ -1,38 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private Dictionary<ItemData, int> inventorySpace;
+    [SerializeField] private List<InventorySlot> inventorySpace;
 
     public void AddItem(ItemData itemToAdd)
     {
-        if(inventorySpace.ContainsKey(itemToAdd))
+        InventorySlot itemSlot = null;
+        //potencjalnie zrobiæ metode FindItem mo¿e siê przydac dla find i remove
+        foreach (InventorySlot slot in inventorySpace)
         {
-            inventorySpace[itemToAdd] += 1;
+            if (slot.item.name == itemToAdd.name)
+            {
+                itemSlot = slot;
+                break;
+            }
+        }
+
+        if(itemSlot == null)
+        {
+            inventorySpace.Add(new InventorySlot(itemToAdd, 1));
         }
         else
         {
-            inventorySpace.Add(itemToAdd, 1);
+            itemSlot.itemAmmount++;
         }
     }
 
     public void RemoveItem(ItemData itemToRemove)
     {
-        if(inventorySpace.ContainsKey(itemToRemove) && inventorySpace[itemToRemove]>1)
+        InventorySlot itemSlot = null;
+
+        foreach (InventorySlot slot in inventorySpace)
         {
-            inventorySpace[itemToRemove] -= 1;
+            if (slot.item.name == itemToRemove.name)
+            {
+                itemSlot = slot;
+                break;
+            }
         }
-        else if(inventorySpace.ContainsKey(itemToRemove) && inventorySpace[itemToRemove] == 1)
+
+        if(itemSlot != null)
         {
-            inventorySpace.Remove(itemToRemove);
+            if(itemSlot.itemAmmount > 1)
+            {
+                itemSlot.itemAmmount--;
+            }
+            else
+            {
+                inventorySpace.Remove(itemSlot);
+            }
         }
         else
         {
-            Debug.LogError("This item dont exist in inventory");
+            Debug.LogError("Item doens't exist");
         }
-
     }
-
 }
