@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private List<InventorySlot> inventorySpace;
+    [SerializeField] private List<InventorySlot> inventorySpace = new List<InventorySlot>();
 
     public void AddItem(ItemData itemToAdd)
     {
@@ -57,6 +57,14 @@ public class Inventory : MonoBehaviour
         else
         {
             Debug.LogError("Item doens't exist");
+        }
+    }
+
+    public void WriteToDebug() //prze¿uciæ do innej klasy która bêdzie obs³ugiwaæ wyœwietlanie ekwipunku
+    {
+        foreach (InventorySlot slot in inventorySpace)
+        {
+            Debug.Log(slot.item.name+" "+slot.itemAmmount);
         }
     }
 }
