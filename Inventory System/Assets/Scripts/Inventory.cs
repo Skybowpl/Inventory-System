@@ -9,18 +9,9 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(ItemData itemToAdd)
     {
-        InventorySlot itemSlot = null;
-        //potencjalnie zrobiæ metode FindItem mo¿e siê przydac dla find i remove
-        foreach (InventorySlot slot in inventorySpace)
-        {
-            if (slot.item.name == itemToAdd.name)
-            {
-                itemSlot = slot;
-                break;
-            }
-        }
+        InventorySlot itemSlot = FindSlotWithItem(inventorySpace, itemToAdd);
 
-        if(itemSlot == null)
+        if (itemSlot == null)
         {
             inventorySpace.Add(new InventorySlot(itemToAdd, 1));
         }
@@ -32,16 +23,7 @@ public class Inventory : MonoBehaviour
 
     public void RemoveItem(ItemData itemToRemove)
     {
-        InventorySlot itemSlot = null;
-
-        foreach (InventorySlot slot in inventorySpace)
-        {
-            if (slot.item.name == itemToRemove.name)
-            {
-                itemSlot = slot;
-                break;
-            }
-        }
+        InventorySlot itemSlot = FindSlotWithItem(inventorySpace, itemToRemove);
 
         if(itemSlot != null)
         {
@@ -66,5 +48,16 @@ public class Inventory : MonoBehaviour
         {
             Debug.Log(slot.item.name+" "+slot.itemAmmount);
         }
+    }
+    private InventorySlot FindSlotWithItem(List<InventorySlot> inventorySpace, ItemData itemToSearch)
+    {
+        foreach (InventorySlot slot in inventorySpace)
+        {
+            if (slot.item == itemToSearch)
+            {
+                return slot;
+            }
+        }
+        return null;
     }
 }
