@@ -20,7 +20,6 @@ public class Inventory : MonoBehaviour
             itemSlot.itemAmmount++;
         }
     }
-
     public void RemoveItem(ItemData itemToRemove)
     {
         InventorySlot itemSlot = FindSlotWithItem(inventorySpace, itemToRemove);
@@ -41,14 +40,6 @@ public class Inventory : MonoBehaviour
             Debug.LogError("Item doens't exist");
         }
     }
-
-    public void WriteToDebug() //prze¿uciæ do innej klasy która bêdzie obs³ugiwaæ wyœwietlanie ekwipunku
-    {
-        foreach (InventorySlot slot in inventorySpace)
-        {
-            Debug.Log(slot.item.name+" "+slot.itemAmmount);
-        }
-    }
     private InventorySlot FindSlotWithItem(List<InventorySlot> inventorySpace, ItemData itemToSearch)
     {
         foreach (InventorySlot slot in inventorySpace)
@@ -59,5 +50,9 @@ public class Inventory : MonoBehaviour
             }
         }
         return null;
+    }
+    public List<InventorySlot> GetInventorySpace()
+    {
+        return inventorySpace;
     }
 }

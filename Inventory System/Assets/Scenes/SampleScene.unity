@@ -1268,6 +1268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 990102675}
   - component: {fileID: 990102676}
+  - component: {fileID: 990102677}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -1302,6 +1303,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6e6231bd46cfa48af0182da92abc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &990102677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990102673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7469aa9a6b5b18e4ebe3c9e2e7de9ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryToDisplay: {fileID: 990102676}
 --- !u!1 &1463222204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,8 +1666,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 990102676}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+      - m_Target: {fileID: 990102677}
+        m_TargetAssemblyTypeName: InventoryDisplay, Assembly-CSharp
         m_MethodName: WriteToDebug
         m_Mode: 1
         m_Arguments:
