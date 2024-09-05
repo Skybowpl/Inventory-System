@@ -509,7 +509,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6637da22ad522204aaa41bb70e3d5cef, type: 2}
   inventoryDisplay: {fileID: 990102677}
   inventory: {fileID: 990102676}
-  butttonPrefab: {fileID: 2726992274202414972, guid: e53e5b6d478e5f5459c0c03354ee417a, type: 3}
+  buttonPrefab: {fileID: 2726992274202414972, guid: e53e5b6d478e5f5459c0c03354ee417a, type: 3}
   contentDisplay: {fileID: 176716586}
 --- !u!114 &175918641
 MonoBehaviour:
@@ -1553,7 +1553,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6637da22ad522204aaa41bb70e3d5cef, type: 2}
   inventoryDisplay: {fileID: 990102677}
   inventory: {fileID: 990102676}
-  butttonPrefab: {fileID: 2726992274202414972, guid: e53e5b6d478e5f5459c0c03354ee417a, type: 3}
+  buttonPrefab: {fileID: 2726992274202414972, guid: e53e5b6d478e5f5459c0c03354ee417a, type: 3}
   contentDisplay: {fileID: 2070147044}
 --- !u!1 &913700125
 GameObject:
