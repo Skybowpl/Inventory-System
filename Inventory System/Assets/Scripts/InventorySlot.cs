@@ -5,12 +5,12 @@ using UnityEngine;
 public class InventorySlot
 {
     public ItemData item;
-    public int itemAmmount;
+    public int itemAmount;
 
-    public InventorySlot(ItemData item, int ammount)
+    public InventorySlot(ItemData item, int amount)
     {
         this.item = item;
-        itemAmmount = ammount;
+        itemAmount = amount;
     }
 
 }

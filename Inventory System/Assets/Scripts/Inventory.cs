@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(ItemData itemToAdd)
     {
-        InventorySlot itemSlot = FindSlotWithItem(inventorySpace, itemToAdd);
+        InventorySlot itemSlot = FindSlotWithItem(itemToAdd);
 
         if (itemSlot == null)
         {
@@ -17,18 +17,18 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            itemSlot.itemAmmount++;
+            itemSlot.itemAmount++;
         }
     }
     public void RemoveItem(ItemData itemToRemove)
     {
-        InventorySlot itemSlot = FindSlotWithItem(inventorySpace, itemToRemove);
+        InventorySlot itemSlot = FindSlotWithItem(itemToRemove);
 
         if(itemSlot != null)
         {
-            if(itemSlot.itemAmmount > 1)
+            if(itemSlot.itemAmount > 1)
             {
-                itemSlot.itemAmmount--;
+                itemSlot.itemAmount--;
             }
             else
             {
@@ -40,7 +40,7 @@ public class Inventory : MonoBehaviour
             Debug.LogError("Item doens't exist");
         }
     }
-    private InventorySlot FindSlotWithItem(List<InventorySlot> inventorySpace, ItemData itemToSearch)
+    public InventorySlot FindSlotWithItem(ItemData itemToSearch)
     {
         foreach (InventorySlot slot in inventorySpace)
         {
