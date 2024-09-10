@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private List<InventorySlot> inventorySpace = new List<InventorySlot>();
+    [SerializeField] private List<InventorySlot> inventorySlots = new List<InventorySlot>();
 
     public void AddItem(ItemData itemToAdd)
     {
@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour
 
         if (itemSlot == null)
         {
-            inventorySpace.Add(new InventorySlot(itemToAdd, 1));
+            inventorySlots.Add(new InventorySlot(itemToAdd, 1));
         }
         else
         {
@@ -32,7 +32,7 @@ public class Inventory : MonoBehaviour
             }
             else
             {
-                inventorySpace.Remove(itemSlot);
+                inventorySlots.Remove(itemSlot);
             }
         }
         else
@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
     }
     public InventorySlot FindSlotWithItem(ItemData itemToSearch)
     {
-        foreach (InventorySlot slot in inventorySpace)
+        foreach (InventorySlot slot in inventorySlots)
         {
             if (slot.item == itemToSearch)
             {
@@ -51,8 +51,8 @@ public class Inventory : MonoBehaviour
         }
         return null;
     }
-    public List<InventorySlot> GetInventorySpace()
+    public List<InventorySlot> GetInventorySlots()
     {
-        return inventorySpace;
+        return inventorySlots;
     }
 }
