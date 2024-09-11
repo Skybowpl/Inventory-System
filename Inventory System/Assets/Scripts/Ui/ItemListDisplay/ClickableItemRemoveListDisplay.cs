@@ -9,8 +9,9 @@ public class ClickableItemRemoveListDisplay : AbstractAllItemsListDisplay
     [SerializeField] private AbstractInventoryItemListDisplay inventoryDisplay;
     protected override void ConfigureSlot(ItemData itemData, GameObject listSlot)
     {
-        listSlot.GetComponent<Button>().onClick.AddListener(() => inventory.RemoveItem(itemData));
-        listSlot.GetComponent<Button>().onClick.AddListener(() => inventoryDisplay.UpdateDisplay());
+        Button button = listSlot.GetComponent<Button>();
+        button.onClick.AddListener(() => inventory.RemoveItem(itemData));
+        button.onClick.AddListener(() => inventoryDisplay.UpdateDisplay());
         listSlot.GetComponent<Image>().sprite = itemData.icon;
     }
 }
