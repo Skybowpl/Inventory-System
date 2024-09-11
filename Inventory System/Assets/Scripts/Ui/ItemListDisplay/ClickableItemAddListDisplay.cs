@@ -12,6 +12,6 @@ public class ClickableItemAddListDisplay : AbstractAllItemsListDisplay
         Button button = listSlot.GetComponent<Button>();
         button.onClick.AddListener(() => inventory.AddItem(itemData));
         button.onClick.AddListener(() => inventoryDisplay.UpdateDisplay());
-        listSlot.GetComponent<Image>().sprite = itemData.icon;
+        listSlot.GetComponent<Image>().sprite = itemData.Icon;
     }
 }

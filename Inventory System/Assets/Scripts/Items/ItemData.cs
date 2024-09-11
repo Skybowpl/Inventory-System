@@ -5,6 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable Objects/Item Data")]
 public class ItemData : ScriptableObject
 {
-    public string itemName;
-    public Sprite icon;
+    [SerializeField] private string itemName;
+    [SerializeField] private Sprite icon;
+
+    public string ItemName
+    {
+        get { return itemName; }
+    }
+
+    public Sprite Icon
+    {
+        get { return icon; }
+    }
 }
