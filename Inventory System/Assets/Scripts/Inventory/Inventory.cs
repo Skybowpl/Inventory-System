@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, IInventory, IItemSlotFinder
 {
     [SerializeField] private List<InventorySlot> inventorySlots = new List<InventorySlot>();
 
