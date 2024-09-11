@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbstractItemListDisplay : MonoBehaviour
+public abstract class AbstractItemListDisplay : MonoBehaviour, IUpdatableDisplay
 {
 
     [SerializeField] protected GameObject contentDisplay;
