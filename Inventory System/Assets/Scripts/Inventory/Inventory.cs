@@ -16,7 +16,7 @@ public class Inventory : MonoBehaviour, IInventory, IItemSlotFinder
         }
         else
         {
-            itemSlot.itemAmount++;
+            itemSlot.ItemAmount++;
         }
     }
     public void RemoveItem(ItemData itemToRemove)
@@ -25,9 +25,9 @@ public class Inventory : MonoBehaviour, IInventory, IItemSlotFinder
 
         if(itemSlot != null)
         {
-            if(itemSlot.itemAmount > 1)
+            if(itemSlot.ItemAmount > 1)
             {
-                itemSlot.itemAmount--;
+                itemSlot.ItemAmount--;
             }
             else
             {
@@ -43,7 +43,7 @@ public class Inventory : MonoBehaviour, IInventory, IItemSlotFinder
     {
         foreach (InventorySlot slot in inventorySlots)
         {
-            if (slot.item == itemToSearch)
+            if (slot.Item == itemToSearch)
             {
                 return slot;
             }

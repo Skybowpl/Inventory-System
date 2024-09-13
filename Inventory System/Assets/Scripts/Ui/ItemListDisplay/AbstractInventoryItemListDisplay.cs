@@ -10,7 +10,7 @@ public abstract class AbstractInventoryItemListDisplay : AbstractItemListDisplay
         itemList.Clear();
         foreach (InventorySlot slot in inventoryToDisplay.GetInventorySlots())
         {
-            itemList.Add(slot.item);
+            itemList.Add(slot.Item);
         }
         base.UpdateDisplay();
     }
