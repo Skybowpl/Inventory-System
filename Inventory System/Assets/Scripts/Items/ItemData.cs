@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Scriptable Objects/Item Data")]
-public class ItemData : ScriptableObject
+public class ItemData : ScriptableObject, IItemData
 {
     [SerializeField] private string itemName;
     [SerializeField] private Sprite icon;
