@@ -8,7 +8,7 @@ public abstract class AbstractInventoryItemListDisplay : AbstractItemListDisplay
     public override void UpdateDisplay()
     {
         itemList.Clear();
-        foreach (InventorySlot slot in inventoryToDisplay.GetInventorySlots())
+        foreach (InventorySlot slot in inventoryToDisplay.InventorySlots)
         {
             itemList.Add(slot.Item);
         }

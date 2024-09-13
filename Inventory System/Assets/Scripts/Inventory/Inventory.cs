@@ -6,6 +6,11 @@ public class Inventory : MonoBehaviour, IInventory, IItemSlotFinder
 {
     [SerializeField] private List<InventorySlot> inventorySlots = new List<InventorySlot>();
 
+    public List<InventorySlot> InventorySlots
+    {
+        get { return inventorySlots; }
+    }
+
     public void AddItem(ItemData itemToAdd)
     {
         InventorySlot itemSlot = FindSlotWithItem(itemToAdd);
@@ -49,9 +54,5 @@ public class Inventory : MonoBehaviour, IInventory, IItemSlotFinder
             }
         }
         return null;
-    }
-    public List<InventorySlot> GetInventorySlots()
-    {
-        return inventorySlots;
     }
 }
