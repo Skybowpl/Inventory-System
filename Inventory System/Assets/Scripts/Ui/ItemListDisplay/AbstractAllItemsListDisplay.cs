@@ -7,6 +7,6 @@ public abstract class AbstractAllItemsListDisplay : AbstractItemListDisplay
     [SerializeField] protected AllItemsList allItemsList;
     protected virtual void Awake()
     {
-        itemList = allItemsList.allItems;
+        itemList = allItemsList.AllItems;
     }
 }
