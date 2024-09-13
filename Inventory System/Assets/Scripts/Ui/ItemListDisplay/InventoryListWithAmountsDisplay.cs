@@ -9,6 +9,7 @@ public class InventoryListWithAmountsDisplay : AbstractInventoryItemListDisplay
     protected override void ConfigureSlot(ItemData itemData, GameObject listSlot)
     {
         listSlot.GetComponent<Image>().sprite = itemData.Icon;
-        listSlot.transform.Find("Text").gameObject.GetComponent<TextMeshProUGUI>().text = inventoryToDisplay.FindSlotWithItem(itemData).ItemAmount.ToString();
+        InventorySlotFinder inventorySlotFinder = new InventorySlotFinder();
+        listSlot.transform.Find("Text").gameObject.GetComponent<TextMeshProUGUI>().text = inventorySlotFinder.FindSlotWithItem(itemData, inventoryToDisplay.InventorySlots).ItemAmount.ToString();
     }
 }

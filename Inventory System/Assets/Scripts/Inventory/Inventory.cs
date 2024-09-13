@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour, IInventory, IItemSlotFinder
+public class Inventory : MonoBehaviour, IInventory
 {
     [SerializeField] private List<InventorySlot> inventorySlots = new List<InventorySlot>();
+    private InventorySlotFinder inventorySlotFinder = new InventorySlotFinder();
 
     public List<InventorySlot> InventorySlots
     {
@@ -13,7 +14,7 @@ public class Inventory : MonoBehaviour, IInventory, IItemSlotFinder
 
     public void AddItem(ItemData itemToAdd)
     {
-        InventorySlot itemSlot = FindSlotWithItem(itemToAdd);
+        InventorySlot itemSlot = inventorySlotFinder.FindSlotWithItem(itemToAdd, inventorySlots);
 
         if (itemSlot == null)
         {
@@ -26,7 +27,7 @@ public class Inventory : MonoBehaviour, IInventory, IItemSlotFinder
     }
     public void RemoveItem(ItemData itemToRemove)
     {
-        InventorySlot itemSlot = FindSlotWithItem(itemToRemove);
+        InventorySlot itemSlot = inventorySlotFinder.FindSlotWithItem(itemToRemove, inventorySlots);
 
         if(itemSlot != null)
         {
@@ -43,16 +44,5 @@ public class Inventory : MonoBehaviour, IInventory, IItemSlotFinder
         {
             Debug.LogError("Item doens't exist");
         }
-    }
-    public InventorySlot FindSlotWithItem(ItemData itemToSearch)
-    {
-        foreach (InventorySlot slot in inventorySlots)
-        {
-            if (slot.Item == itemToSearch)
-            {
-                return slot;
-            }
-        }
-        return null;
     }
 }
