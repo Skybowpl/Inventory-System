@@ -5,8 +5,9 @@ using UnityEngine;
 public abstract class AbstractAllItemsListDisplay : AbstractItemListDisplay
 {
     [SerializeField] protected AllItemsList allItemsList;
-    protected virtual void Awake()
+    protected override void Awake()
     {
         itemList = allItemsList.AllItems;
+        base.Awake();
     }
 }

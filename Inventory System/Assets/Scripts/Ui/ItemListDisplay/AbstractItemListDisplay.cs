@@ -9,6 +9,11 @@ public abstract class AbstractItemListDisplay : MonoBehaviour, IUpdatableDisplay
     [SerializeField] protected GameObject listSlotPrefab;
     [SerializeField] protected List<ItemData> itemList;
 
+    protected virtual void Awake()
+    {
+        UpdateDisplay();
+    }
+
     public virtual void UpdateDisplay()
     {
         for (int i = contentDisplay.transform.childCount - 1; i >= 0; i--)
