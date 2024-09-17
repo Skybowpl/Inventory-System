@@ -7,13 +7,14 @@ using UnityEngine;
 public class AllItemsList : ScriptableObject, IItemList
 {
     [SerializeField] private List<ItemData> allItems = new List<ItemData>();
-    [SerializeField] private string itemsPath = "Assets/ScriptableObjects/Items";
 
     public List<ItemData> AllItems
     {
         get { return allItems; }
     }
 
+    #if UNITY_EDITOR
+    [SerializeField] private string itemsPath = "Assets/ScriptableObjects/Items";
     [ContextMenu("Create List of all items")]
     private void UpdateItemList()
     {
@@ -26,4 +27,5 @@ public class AllItemsList : ScriptableObject, IItemList
             allItems.Add(item);
         }
     }
+    #endif
 }

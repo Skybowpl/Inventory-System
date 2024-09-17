@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Herb
   icon: {fileID: 21300000, guid: 57010a63f0ea92244ae5b4cc96622791, type: 3}
+  uniqueID: 8b805205a0fefdf449ac277b72489a8f
