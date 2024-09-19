@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IInventorySlot
 {
-    public ItemData Item { get; }
+    public IItemData Item { get; }
     public int ItemAmount { get; set; }
 }

@@ -7,7 +7,7 @@ public abstract class AbstractItemListDisplay : MonoBehaviour, IUpdatableDisplay
 
     [SerializeField] protected GameObject contentDisplay;
     [SerializeField] protected GameObject listSlotPrefab;
-    [SerializeField] protected List<ItemData> itemList;
+    protected List<IItemData> itemList = new List<IItemData>();
 
     protected virtual void Awake()
     {
@@ -21,12 +21,12 @@ public abstract class AbstractItemListDisplay : MonoBehaviour, IUpdatableDisplay
             Destroy(contentDisplay.transform.GetChild(i).gameObject);
         }
 
-        foreach (ItemData item in itemList)
+        foreach (IItemData item in itemList)
         {
             GameObject listSlot = Instantiate(listSlotPrefab, contentDisplay.transform);
             ConfigureSlot(item, listSlot);
         }
     }
-    protected abstract void ConfigureSlot(ItemData itemData, GameObject listSlot);
-
+    protected abstract void ConfigureSlot(IItemData itemData, GameObject listSlot);
+    protected abstract void UpdateItemList();
 }

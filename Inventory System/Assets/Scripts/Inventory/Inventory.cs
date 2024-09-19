@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour, IInventory
 {
-    [SerializeField] private List<InventorySlot> inventorySlots = new List<InventorySlot>();
-    private InventorySlotFinder inventorySlotFinder = new InventorySlotFinder();
+    private List<IInventorySlot> inventorySlots = new List<IInventorySlot>();
+    private IInventorySlotFinder inventorySlotFinder = new InventorySlotFinder();
 
-    public List<InventorySlot> InventorySlots
+    public List<IInventorySlot> InventorySlots
     {
         get { return inventorySlots; }
     }
 
-    public void AddItem(ItemData itemToAdd)
+    public void AddItem(IItemData itemToAdd)
     {
-        InventorySlot itemSlot = inventorySlotFinder.FindSlotWithItem(itemToAdd, inventorySlots);
+        IInventorySlot itemSlot = inventorySlotFinder.FindSlotWithItem(itemToAdd, inventorySlots);
 
         if (itemSlot == null)
         {
@@ -25,13 +25,13 @@ public class Inventory : MonoBehaviour, IInventory
             itemSlot.ItemAmount++;
         }
     }
-    public void RemoveItem(ItemData itemToRemove)
+    public void RemoveItem(IItemData itemToRemove)
     {
-        InventorySlot itemSlot = inventorySlotFinder.FindSlotWithItem(itemToRemove, inventorySlots);
+        IInventorySlot itemSlot = inventorySlotFinder.FindSlotWithItem(itemToRemove, inventorySlots);
 
-        if(itemSlot != null)
+        if (itemSlot != null)
         {
-            if(itemSlot.ItemAmount > 1)
+            if (itemSlot.ItemAmount > 1)
             {
                 itemSlot.ItemAmount--;
             }
@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour, IInventory
         }
         else
         {
-            Debug.LogError("Item doens't exist");
+            Debug.LogError("Item doesn't exist");
         }
     }
 }

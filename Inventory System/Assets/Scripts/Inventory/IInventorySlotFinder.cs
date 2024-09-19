@@ -2,5 +2,5 @@ using System.Collections.Generic;
 
 public interface IInventorySlotFinder
 {
-    public InventorySlot FindSlotWithItem(ItemData itemToSearch, List<InventorySlot> inventorySlots);
+    public IInventorySlot FindSlotWithItem(IItemData itemToSearch, List<IInventorySlot> inventorySlots);
 }

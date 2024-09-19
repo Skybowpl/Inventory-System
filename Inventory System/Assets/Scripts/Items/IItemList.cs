@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IItemList
 {
-    public List<ItemData> AllItems { get; }
+    public List<IItemData> ItemList { get; }
 }

@@ -574,7 +574,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentDisplay: {fileID: 176716586}
   listSlotPrefab: {fileID: 2726992274202414972, guid: e53e5b6d478e5f5459c0c03354ee417a, type: 3}
-  itemList: []
   allItemsList: {fileID: 11400000, guid: f8940435213fb8e46ab9ad94a4600029, type: 2}
   inventory: {fileID: 990102676}
   inventoryDisplay: {fileID: 1271450450}
@@ -1584,7 +1583,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentDisplay: {fileID: 2070147044}
   listSlotPrefab: {fileID: 2726992274202414972, guid: e53e5b6d478e5f5459c0c03354ee417a, type: 3}
-  itemList: []
   allItemsList: {fileID: 11400000, guid: f8940435213fb8e46ab9ad94a4600029, type: 2}
   inventory: {fileID: 990102676}
   inventoryDisplay: {fileID: 1271450450}
@@ -2204,8 +2202,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1100330949}
   m_HandleRect: {fileID: 1100330948}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.99999994
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2374,7 +2372,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentDisplay: {fileID: 1860046726}
   listSlotPrefab: {fileID: 8552833994248855581, guid: c5ff5e4ccf6885a4ea3d6697fd700dd8, type: 3}
-  itemList: []
   inventoryToDisplay: {fileID: 990102676}
 --- !u!1 &1272817887
 GameObject:

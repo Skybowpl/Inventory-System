@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Scriptable Objects/All Item List")]
 public class AllItemsList : ScriptableObject, IItemList
 {
-    [SerializeField] private List<ItemData> allItems = new List<ItemData>();
+    [SerializeField] private List<ItemData> itemList = new List<ItemData>();
 
-    public List<ItemData> AllItems
+    public List<IItemData> ItemList
     {
-        get { return allItems; }
+        get { return itemList.Cast<IItemData>().ToList(); }
     }
 
     #if UNITY_EDITOR
@@ -18,13 +19,13 @@ public class AllItemsList : ScriptableObject, IItemList
     [ContextMenu("Create List of all items")]
     private void UpdateItemList()
     {
-        allItems.Clear();
+        itemList.Clear();
         string[] itemsGuids = AssetDatabase.FindAssets("t:ItemData", new[] {itemsPath});
         foreach (string guid in itemsGuids)
         {
             string path = AssetDatabase.GUIDToAssetPath(guid);
             ItemData item = AssetDatabase.LoadAssetAtPath<ItemData>(path);
-            allItems.Add(item);
+            itemList.Add(item);
         }
     }
     #endif

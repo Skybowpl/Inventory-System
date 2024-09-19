@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class InventorySlot : IInventorySlot
 {
-    private ItemData item;
+    private IItemData item;
     private int itemAmount;
 
-    public ItemData Item
+    public IItemData Item
     {
         get { return item; }
     }
@@ -26,7 +26,7 @@ public class InventorySlot : IInventorySlot
         }
     }
 
-    public InventorySlot(ItemData item, int amount)
+    public InventorySlot(IItemData item, int amount)
     {
         this.item = item;
         itemAmount = amount;

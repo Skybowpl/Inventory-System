@@ -7,11 +7,15 @@ public abstract class AbstractInventoryItemListDisplay : AbstractItemListDisplay
 
     public override void UpdateDisplay()
     {
+        UpdateItemList();
+        base.UpdateDisplay();
+    }
+    protected override void UpdateItemList()
+    {
         itemList.Clear();
-        foreach (InventorySlot slot in inventoryToDisplay.InventorySlots)
+        foreach (IInventorySlot slot in inventoryToDisplay.InventorySlots)
         {
             itemList.Add(slot.Item);
         }
-        base.UpdateDisplay();
     }
 }

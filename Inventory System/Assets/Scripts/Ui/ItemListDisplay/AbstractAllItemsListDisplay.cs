@@ -7,7 +7,11 @@ public abstract class AbstractAllItemsListDisplay : AbstractItemListDisplay
     [SerializeField] protected AllItemsList allItemsList;
     protected override void Awake()
     {
-        itemList = allItemsList.AllItems;
+        UpdateItemList();
         base.Awake();
+    }
+    protected override void UpdateItemList()
+    {
+        itemList = allItemsList.ItemList;
     }
 }

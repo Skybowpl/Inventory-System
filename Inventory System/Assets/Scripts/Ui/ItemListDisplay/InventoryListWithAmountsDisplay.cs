@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class InventoryListWithAmountsDisplay : AbstractInventoryItemListDisplay
 {
-    protected override void ConfigureSlot(ItemData itemData, GameObject listSlot)
+    protected override void ConfigureSlot(IItemData itemData, GameObject listSlot)
     {
         listSlot.GetComponent<Image>().sprite = itemData.Icon;
-        InventorySlotFinder inventorySlotFinder = new InventorySlotFinder();
+        IInventorySlotFinder inventorySlotFinder = new InventorySlotFinder();
         listSlot.transform.Find("Text").gameObject.GetComponent<TextMeshProUGUI>().text = inventorySlotFinder.FindSlotWithItem(itemData, inventoryToDisplay.InventorySlots).ItemAmount.ToString();
     }
 }

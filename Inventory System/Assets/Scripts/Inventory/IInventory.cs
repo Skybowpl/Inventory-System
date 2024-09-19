@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public interface IInventory
 {
-    public void AddItem(ItemData itemToAdd);
-    public void RemoveItem(ItemData itemToRemove);
-    public List<InventorySlot> InventorySlots { get; }
+    public void AddItem(IItemData itemToAdd);
+    public void RemoveItem(IItemData itemToRemove);
+    public List<IInventorySlot> InventorySlots { get; }
 
 }
