@@ -1,48 +1,51 @@
-using System.Collections;
+using InventorySystem.Items;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour, IInventory
+namespace InventorySystem.Storage
 {
-    private List<IInventorySlot> inventorySlots = new List<IInventorySlot>();
-    private IInventorySlotFinder inventorySlotFinder = new InventorySlotFinder();
-
-    public List<IInventorySlot> InventorySlots
+    public class Inventory : MonoBehaviour, IInventory
     {
-        get { return inventorySlots; }
-    }
+        private List<IInventorySlot> inventorySlots = new List<IInventorySlot>();
+        private IInventorySlotFinder inventorySlotFinder = new InventorySlotFinder();
 
-    public void AddItem(IItemData itemToAdd)
-    {
-        IInventorySlot itemSlot = inventorySlotFinder.FindSlotWithItem(itemToAdd, inventorySlots);
-
-        if (itemSlot == null)
+        public List<IInventorySlot> InventorySlots
         {
-            inventorySlots.Add(new InventorySlot(itemToAdd, 1));
+            get { return inventorySlots; }
         }
-        else
-        {
-            itemSlot.ItemAmount++;
-        }
-    }
-    public void RemoveItem(IItemData itemToRemove)
-    {
-        IInventorySlot itemSlot = inventorySlotFinder.FindSlotWithItem(itemToRemove, inventorySlots);
 
-        if (itemSlot != null)
+        public void AddItem(IItemData itemToAdd)
         {
-            if (itemSlot.ItemAmount > 1)
+            IInventorySlot itemSlot = inventorySlotFinder.FindSlotWithItem(itemToAdd, inventorySlots);
+
+            if (itemSlot == null)
             {
-                itemSlot.ItemAmount--;
+                inventorySlots.Add(new InventorySlot(itemToAdd, 1));
             }
             else
             {
-                inventorySlots.Remove(itemSlot);
+                itemSlot.ItemAmount++;
             }
         }
-        else
+        public void RemoveItem(IItemData itemToRemove)
         {
-            Debug.LogError("Item doesn't exist");
+            IInventorySlot itemSlot = inventorySlotFinder.FindSlotWithItem(itemToRemove, inventorySlots);
+
+            if (itemSlot != null)
+            {
+                if (itemSlot.ItemAmount > 1)
+                {
+                    itemSlot.ItemAmount--;
+                }
+                else
+                {
+                    inventorySlots.Remove(itemSlot);
+                }
+            }
+            else
+            {
+                Debug.LogError("Item doesn't exist");
+            }
         }
     }
 }

@@ -1,32 +1,34 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Objects/All Item List")]
-public class AllItemsList : ScriptableObject, IItemList
+namespace InventorySystem.Items
 {
-    [SerializeField] private List<ItemData> itemList = new List<ItemData>();
-
-    public List<IItemData> ItemList
+    [CreateAssetMenu(menuName = "Scriptable Objects/All Item List")]
+    public class AllItemsList : ScriptableObject, IItemList
     {
-        get { return itemList.Cast<IItemData>().ToList(); }
-    }
+        [SerializeField] private List<ItemData> itemList = new List<ItemData>();
 
-    #if UNITY_EDITOR
-    [SerializeField] private string itemsPath = "Assets/ScriptableObjects/Items";
-    [ContextMenu("Create List of all items")]
-    private void UpdateItemList()
-    {
-        itemList.Clear();
-        string[] itemsGuids = AssetDatabase.FindAssets("t:ItemData", new[] {itemsPath});
-        foreach (string guid in itemsGuids)
+        public List<IItemData> ItemList
         {
-            string path = AssetDatabase.GUIDToAssetPath(guid);
-            ItemData item = AssetDatabase.LoadAssetAtPath<ItemData>(path);
-            itemList.Add(item);
+            get { return itemList.Cast<IItemData>().ToList(); }
         }
+
+#if UNITY_EDITOR
+        [SerializeField] private string itemsPath = "Assets/ScriptableObjects/Items";
+        [ContextMenu("Create List of all items")]
+        private void UpdateItemList()
+        {
+            itemList.Clear();
+            string[] itemsGuids = AssetDatabase.FindAssets("t:ItemData", new[] { itemsPath });
+            foreach (string guid in itemsGuids)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                ItemData item = AssetDatabase.LoadAssetAtPath<ItemData>(path);
+                itemList.Add(item);
+            }
+        }
+#endif
     }
-    #endif
 }

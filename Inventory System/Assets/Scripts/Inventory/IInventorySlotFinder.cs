@@ -1,6 +1,10 @@
+using InventorySystem.Items;
 using System.Collections.Generic;
 
-public interface IInventorySlotFinder
+namespace InventorySystem.Storage
 {
-    public IInventorySlot FindSlotWithItem(IItemData itemToSearch, List<IInventorySlot> inventorySlots);
+    public interface IInventorySlotFinder
+    {
+        public IInventorySlot FindSlotWithItem(IItemData itemToSearch, List<IInventorySlot> inventorySlots);
+    }
 }

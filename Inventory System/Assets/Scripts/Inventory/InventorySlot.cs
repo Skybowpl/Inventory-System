@@ -1,34 +1,38 @@
+using InventorySystem.Items;
 using UnityEngine;
 
-public class InventorySlot : IInventorySlot
+namespace InventorySystem.Storage
 {
-    private IItemData item;
-    private int itemAmount;
-
-    public IItemData Item
+    public class InventorySlot : IInventorySlot
     {
-        get { return item; }
-    }
+        private IItemData item;
+        private int itemAmount;
 
-    public int ItemAmount
-    {
-        get { return itemAmount; }
-        set
+        public IItemData Item
         {
-            if (value >= 0)
+            get { return item; }
+        }
+
+        public int ItemAmount
+        {
+            get { return itemAmount; }
+            set
             {
-                itemAmount = value;
-            }
-            else
-            {
-                Debug.LogError("Item Ammount can't be set bellow 0");
+                if (value >= 0)
+                {
+                    itemAmount = value;
+                }
+                else
+                {
+                    Debug.LogError("Item Ammount can't be set bellow 0");
+                }
             }
         }
-    }
 
-    public InventorySlot(IItemData item, int amount)
-    {
-        this.item = item;
-        itemAmount = amount;
+        public InventorySlot(IItemData item, int amount)
+        {
+            this.item = item;
+            itemAmount = amount;
+        }
     }
 }

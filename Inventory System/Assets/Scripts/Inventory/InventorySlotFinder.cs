@@ -1,18 +1,20 @@
-using System.Collections;
+using InventorySystem.Items;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class InventorySlotFinder : IInventorySlotFinder
+namespace InventorySystem.Storage
 {
-    public IInventorySlot FindSlotWithItem(IItemData itemToSearch, List<IInventorySlot> inventorySlots)
+    public class InventorySlotFinder : IInventorySlotFinder
     {
-        foreach (IInventorySlot slot in inventorySlots)
+        public IInventorySlot FindSlotWithItem(IItemData itemToSearch, List<IInventorySlot> inventorySlots)
         {
-            if (slot.Item.UniqueID == itemToSearch.UniqueID)
+            foreach (IInventorySlot slot in inventorySlots)
             {
-                return slot;
+                if (slot.Item.UniqueID == itemToSearch.UniqueID)
+                {
+                    return slot;
+                }
             }
+            return null;
         }
-        return null;
     }
 }

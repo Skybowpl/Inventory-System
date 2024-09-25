@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using InventorySystem.Items;
 
-public interface IInventorySlot
+namespace InventorySystem.Storage
 {
-    public IItemData Item { get; }
-    public int ItemAmount { get; set; }
+    public interface IInventorySlot
+    {
+        public IItemData Item { get; }
+        public int ItemAmount { get; set; }
+    }
 }

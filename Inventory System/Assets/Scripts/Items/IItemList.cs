@@ -1,8 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public interface IItemList
+namespace InventorySystem.Items
 {
-    public List<IItemData> ItemList { get; }
+    public interface IItemList
+    {
+        public List<IItemData> ItemList { get; }
+    }
 }

@@ -1,32 +1,35 @@
-using System.Collections;
+using InventorySystem.Items;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbstractItemListDisplay : MonoBehaviour, IUpdatableDisplay
+namespace InventorySystem.UI
 {
-
-    [SerializeField] protected GameObject contentDisplay;
-    [SerializeField] protected GameObject listSlotPrefab;
-    protected List<IItemData> itemList = new List<IItemData>();
-
-    protected virtual void Awake()
+    public abstract class AbstractItemListDisplay : MonoBehaviour, IUpdatableDisplay
     {
-        UpdateDisplay();
-    }
 
-    public virtual void UpdateDisplay()
-    {
-        for (int i = contentDisplay.transform.childCount - 1; i >= 0; i--)
+        [SerializeField] protected GameObject contentDisplay;
+        [SerializeField] protected GameObject listSlotPrefab;
+        protected List<IItemData> itemList = new List<IItemData>();
+
+        protected virtual void Awake()
         {
-            Destroy(contentDisplay.transform.GetChild(i).gameObject);
+            UpdateDisplay();
         }
 
-        foreach (IItemData item in itemList)
+        public virtual void UpdateDisplay()
         {
-            GameObject listSlot = Instantiate(listSlotPrefab, contentDisplay.transform);
-            ConfigureSlot(item, listSlot);
+            for (int i = contentDisplay.transform.childCount - 1; i >= 0; i--)
+            {
+                Destroy(contentDisplay.transform.GetChild(i).gameObject);
+            }
+
+            foreach (IItemData item in itemList)
+            {
+                GameObject listSlot = Instantiate(listSlotPrefab, contentDisplay.transform);
+                ConfigureSlot(item, listSlot);
+            }
         }
+        protected abstract void ConfigureSlot(IItemData itemData, GameObject listSlot);
+        protected abstract void UpdateItemList();
     }
-    protected abstract void ConfigureSlot(IItemData itemData, GameObject listSlot);
-    protected abstract void UpdateItemList();
 }

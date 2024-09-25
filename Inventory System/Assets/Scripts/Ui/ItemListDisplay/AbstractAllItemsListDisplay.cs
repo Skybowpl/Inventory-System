@@ -1,17 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using InventorySystem.Items;
 using UnityEngine;
 
-public abstract class AbstractAllItemsListDisplay : AbstractItemListDisplay
+namespace InventorySystem.UI
 {
-    [SerializeField] protected AllItemsList allItemsList;
-    protected override void Awake()
+    public abstract class AbstractAllItemsListDisplay : AbstractItemListDisplay
     {
-        UpdateItemList();
-        base.Awake();
-    }
-    protected override void UpdateItemList()
-    {
-        itemList = allItemsList.ItemList;
+        [SerializeField] protected AllItemsList allItemsList;
+        protected override void Awake()
+        {
+            UpdateItemList();
+            base.Awake();
+        }
+        protected override void UpdateItemList()
+        {
+            itemList = allItemsList.ItemList;
+        }
     }
 }

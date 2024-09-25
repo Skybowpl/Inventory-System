@@ -1,35 +1,35 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Item Data")]
-public class ItemData : ScriptableObject, IItemData
+namespace InventorySystem.Items
 {
-    [SerializeField] private string itemName;
-    [SerializeField] private Sprite icon;
-    [SerializeField] private string uniqueID;
-
-    public string ItemName
+    [CreateAssetMenu(menuName = "Scriptable Objects/Item Data")]
+    public class ItemData : ScriptableObject, IItemData
     {
-        get { return itemName; }
-    }
+        [SerializeField] private string itemName;
+        [SerializeField] private Sprite icon;
+        [SerializeField] private string uniqueID;
 
-    public Sprite Icon
-    {
-        get { return icon; }
-    }
+        public string ItemName
+        {
+            get { return itemName; }
+        }
 
-    public string UniqueID
-    {
-        get { return uniqueID; }
-    }
+        public Sprite Icon
+        {
+            get { return icon; }
+        }
 
-    #if UNITY_EDITOR
-    private void Awake()
-    {
-        uniqueID = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(this));
+        public string UniqueID
+        {
+            get { return uniqueID; }
+        }
+
+#if UNITY_EDITOR
+        private void Awake()
+        {
+            uniqueID = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(this));
+        }
+#endif
     }
-    #endif
 }

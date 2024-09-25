@@ -1,10 +1,13 @@
-using System.Collections;
+using InventorySystem.Items;
 using System.Collections.Generic;
 
-public interface IInventory
+namespace InventorySystem.Storage
 {
-    public void AddItem(IItemData itemToAdd);
-    public void RemoveItem(IItemData itemToRemove);
-    public List<IInventorySlot> InventorySlots { get; }
+    public interface IInventory
+    {
+        public void AddItem(IItemData itemToAdd);
+        public void RemoveItem(IItemData itemToRemove);
+        public List<IInventorySlot> InventorySlots { get; }
 
+    }
 }

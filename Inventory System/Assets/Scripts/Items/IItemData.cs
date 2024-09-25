@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public interface IItemData
+namespace InventorySystem.Items
 {
-    public string ItemName { get; }
-    public Sprite Icon { get; }
-    public string UniqueID { get; }
+    public interface IItemData
+    {
+        public string ItemName { get; }
+        public Sprite Icon { get; }
+        public string UniqueID { get; }
+    }
 }

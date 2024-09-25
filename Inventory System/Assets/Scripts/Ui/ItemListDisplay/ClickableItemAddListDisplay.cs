@@ -1,17 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using InventorySystem.Items;
+using InventorySystem.Storage;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ClickableItemAddListDisplay : AbstractAllItemsListDisplay
+namespace InventorySystem.UI
 {
-    [SerializeField] private Inventory inventory;
-    [SerializeField] private AbstractInventoryItemListDisplay inventoryDisplay;
-    protected override void ConfigureSlot(IItemData itemData, GameObject listSlot)
+    public class ClickableItemAddListDisplay : AbstractAllItemsListDisplay
     {
-        Button button = listSlot.GetComponent<Button>();
-        button.onClick.AddListener(() => inventory.AddItem(itemData));
-        button.onClick.AddListener(() => inventoryDisplay.UpdateDisplay());
-        listSlot.GetComponent<Image>().sprite = itemData.Icon;
+        [SerializeField] private Inventory inventory;
+        [SerializeField] private AbstractInventoryItemListDisplay inventoryDisplay;
+        protected override void ConfigureSlot(IItemData itemData, GameObject listSlot)
+        {
+            Button button = listSlot.GetComponent<Button>();
+            button.onClick.AddListener(() => inventory.AddItem(itemData));
+            button.onClick.AddListener(() => inventoryDisplay.UpdateDisplay());
+            listSlot.GetComponent<Image>().sprite = itemData.Icon;
+        }
     }
 }

@@ -1,15 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using InventorySystem.Storage;
+using InventorySystem.Items;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryListWithAmountsDisplay : AbstractInventoryItemListDisplay
+namespace InventorySystem.UI
 {
-    protected override void ConfigureSlot(IItemData itemData, GameObject listSlot)
+    public class InventoryListWithAmountsDisplay : AbstractInventoryItemListDisplay
     {
-        listSlot.GetComponent<Image>().sprite = itemData.Icon;
-        IInventorySlotFinder inventorySlotFinder = new InventorySlotFinder();
-        listSlot.transform.Find("Text").gameObject.GetComponent<TextMeshProUGUI>().text = inventorySlotFinder.FindSlotWithItem(itemData, inventoryToDisplay.InventorySlots).ItemAmount.ToString();
+        protected override void ConfigureSlot(IItemData itemData, GameObject listSlot)
+        {
+            listSlot.GetComponent<Image>().sprite = itemData.Icon;
+            IInventorySlotFinder inventorySlotFinder = new InventorySlotFinder();
+            listSlot.transform.Find("Text").gameObject.GetComponent<TextMeshProUGUI>().text = inventorySlotFinder.FindSlotWithItem(itemData, inventoryToDisplay.InventorySlots).ItemAmount.ToString();
+        }
     }
 }
