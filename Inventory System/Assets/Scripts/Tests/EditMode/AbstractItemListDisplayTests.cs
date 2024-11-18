@@ -16,10 +16,12 @@ namespace InventorySystem.Tests.EditMode
                 listSlotPrefab = new GameObject();
                 UpdateItemList();
             }
-            public void CreateExampleItemList()
+            public void CreateExampleItemList(List<ItemDataMock> testItemsToAdd)
             {
-                itemList.Add(new ItemDataMock("Sword", null, "1"));
-                itemList.Add(new ItemDataMock("Bow", null, "2"));
+                foreach (ItemDataMock item in testItemsToAdd)
+                {
+                    itemList.Add(item);
+                }
             }
 
             protected override void ConfigureSlot(IItemData itemData, GameObject listSlot)
@@ -40,7 +42,7 @@ namespace InventorySystem.Tests.EditMode
             GameObject displayGameObject = new GameObject();
             TestAbstractItemListDisplay display = displayGameObject.AddComponent<TestAbstractItemListDisplay>();
             display.SetFields();
-            display.CreateExampleItemList();
+            display.CreateExampleItemList(new List<ItemDataMock> { new ItemDataMock("sword", null, "1"), new ItemDataMock("bow", null, "2") });
             //Act
             display.UpdateDisplay();
             //Assert
