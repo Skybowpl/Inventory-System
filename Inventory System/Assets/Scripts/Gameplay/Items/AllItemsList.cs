@@ -8,7 +8,7 @@ namespace InventorySystem.Items
     [CreateAssetMenu(menuName = "Scriptable Objects/All Item List")]
     public class AllItemsList : ScriptableObject, IItemList
     {
-        [SerializeField] private List<ItemData> itemList = new List<ItemData>();
+        [SerializeField] protected List<ItemData> itemList = new List<ItemData>();
 
         public List<IItemData> ItemList
         {
