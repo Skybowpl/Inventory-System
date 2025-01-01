@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+using InventorySystem.Items;
+using InventorySystem.Storage;
 using InventorySystem.UI;
 using NUnit.Framework;
 using UnityEngine;
-using InventorySystem.Storage;
-using UnityEngine.TestTools;
-using InventorySystem.Items;
 using UnityEngine.UI;
 
 namespace InventorySystem.Tests.EditMode
