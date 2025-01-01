@@ -7,8 +7,8 @@ namespace InventorySystem.UI
 {
     public class ClickableItemRemoveListDisplay : AbstractAllItemsListDisplay
     {
-        [SerializeField] private Inventory inventory;
-        [SerializeField] private AbstractInventoryItemListDisplay inventoryDisplay;
+        [SerializeField] protected Inventory inventory;
+        [SerializeField] protected AbstractInventoryItemListDisplay inventoryDisplay;
         protected override void ConfigureSlot(IItemData itemData, GameObject listSlot)
         {
             Button button = listSlot.GetComponent<Button>();
